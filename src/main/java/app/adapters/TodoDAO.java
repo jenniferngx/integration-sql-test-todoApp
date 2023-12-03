@@ -49,18 +49,13 @@ public class TodoDAO implements TodoRepository{
         }
     }
 
-	public void completeTodo(String todo){
+    public void completeTodo(String todo){
         try {
-            PreparedStatement ps = connection.prepareStatement("select * from todos where user = '" + username + "'");
-
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                System.out.println(rs.getString("todo"));
-            }
-
+          PreparedStatement ps = connection.prepareStatement("delete from todos where username = '" + username + "' and todo ='" + todo + "'");
+          ps.executeUpdate();
+     
         } catch(Exception e) {
-            throw new RuntimeException(e);
+          throw new RuntimeException(e);
         }
-    }
+     }
 }
