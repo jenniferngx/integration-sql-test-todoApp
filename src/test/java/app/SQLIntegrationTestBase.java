@@ -24,8 +24,8 @@ public class SQLIntegrationTestBase {
     @BeforeEach
     void setup() throws SQLException {
         connection = DriverManager.getConnection("jdbc:hsqldb:mem:testdb");     
-        PreparedStatement users = connection.prepareStatement("CREATE TABLE users (id bigint, username varchar(20))");
-        PreparedStatement todos = connection.prepareStatement("CREATE TABLE todos (username varchar(20), todo varchar(100))");
+        PreparedStatement users = connection.prepareStatement("CREATE TABLE if not exists users (id bigint, username varchar(20))");
+        PreparedStatement todos = connection.prepareStatement("CREATE TABLE if not exists   todos (username varchar(20), todo varchar(100))");
         
         users.execute();
         todos.execute();

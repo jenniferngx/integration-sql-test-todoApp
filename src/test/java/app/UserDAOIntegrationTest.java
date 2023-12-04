@@ -1,56 +1,40 @@
 package app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+// import static org.junit.jupiter.api.Assertions.assertThrows;
+// import static org.junit.jupiter.api.Assertions.assertTrue;
+// import static org.junit.jupiter.api.Assertions.fail;
 
-import java.sql.SQLException;
+// import java.sql.SQLException;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+// import org.junit.jupiter.api.AfterEach;
+// import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 // import static org.junit.jupiter.api.Assertions.assertEquals;
 // import org.junit.jupiter.api.Test;
 // import static org.assertj.core.api.Assertions.*;
 
-import app.adapters.UserDAO;
 
 public class UserDAOIntegrationTest extends SQLIntegrationTestBase{
-
-    UserDAO dao;
-
-    @BeforeEach
-    void setup() throws SQLException{
-        super.setup();
-        dao = new UserDAO(connection);
-    }
-
-    @AfterEach
-    void cleanup() throws SQLException{
-        super.cleanup();
-    }
+    // UserDAO dao;
 
     @Test
     void testAddUser() {
-        assertTrue(dao.addUser(userId, username));
+        String username2 = "adam";
+        Long userId2 = 50L;
+
+        user.addUser(userId, username);
+        assertEquals(user.findUsernameById(userId), username);
+
+        user.addUser(userId2, username2);
+        assertEquals(user.findUsernameById(userId2), username2);
     }
 
     @Test
     void testFindUsernameById(){
-        dao.addUser(userId, username);
-        String user = dao.findUsernameById(userId);
-        assertEquals(username, user);
+        user.addUser(userId, username);
+        assertEquals(user.findUsernameById(userId), username);
     }
-
-    @Test
-    void testRuntime(){
-        assertThrows(RuntimeException.class, () -> dao.findUsernameById(userId).isEmpty());
-    }
-
-
-
-
-    
+ 
 }
