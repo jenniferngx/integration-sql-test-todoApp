@@ -35,6 +35,12 @@ public class UserDAOIntegrationTest extends SQLIntegrationTestBase{
     void testFindUsernameById(){
         user.addUser(userId, username);
         assertEquals(user.findUsernameById(userId), username);
+
+        String username2 = "Jennifer";
+        Long userId2 = 10L;
+        user.addUser(userId2, username2);
+        assertEquals(user.findUsernameById(userId2), username2);
+
     }
  
 }
