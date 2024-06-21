@@ -1,9 +1,6 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/43ejEo-3)
-# Project 
+# Project: Integration and SQL Testing
 
-## Milestone 2: Integration and SQL Testing
-
-In Milestone 2, you are provided with the adapter classes that implement the port interfaces provided in Milestone 1: `TodoDAO.java` and `UserDAO.java`. For this milestone you are required to implement the integration testing with the database.
+In this project, we are implementing integration testing with the database of a TODO App. Milestone 2, you are provided with the adapter classes that implement the port interfaces provided in Milestone 1: `TodoDAO.java` and `UserDAO.java`. For this milestone you are required to implement the integration testing with the database.
 
 ### TODO Database information
 
@@ -17,10 +14,9 @@ The other table is called `todos` and has 2 columns:
 
 ### Steps in implementing integration testing
 
-1. In `SQLIntegrationTestBase.java` implement setup and cleanup. Setup must include creating the database and the tables. My recommendation is to use the `jdbc:hsqldb:mem:` or `jdbc:hsqldb:file:` for the database connection. For more details on HSQLDB see [here.](https://www.hsqldb.org/doc/2.0/guide/running-chapt.html)
+1. In `SQLIntegrationTestBase.java`, we implement setup and cleanup. Setup includes creating the database and the tables. For the database connection, we use the `jdbc:hsqldb:mem:` or `jdbc:hsqldb:file:`. For more details on HSQLDB see [here.](https://www.hsqldb.org/doc/2.0/guide/running-chapt.html)
 
-2. Implement integration tests for `UserDAO.java` in `UserDAOIntegrationTest.java`.
+2. We implement integration tests for `UserDAO.java` in `UserDAOIntegrationTest.java`.
 
-3. Implement integration tests for `TodoDAO.java` in `TodoDAOIntegrationTest.jav`.
-
-4. If you were able to identify any issues with the code base, please list them here and indicate which tests should be expected to fail due to these issues.
+3. We implement integration tests for `TodoDAO.java` in `TodoDAOIntegrationTest.jav`.
+   
